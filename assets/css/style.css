@@ -330,7 +330,7 @@
 
 @media (max-width: 575.98px) {
   .offer-grid > .col-12 {
-    max-width: 420px;
+    max-width: 340px;
   }
 }
 
@@ -375,9 +375,19 @@
   transform: translateY(-6px);
   box-shadow: 0 20px 36px -22px rgba(0, 0, 0, 0.18);
 }
+/* padding-bottom keeps the 4:3 box; the image is absolutely placed (safe on iOS Safari) */
 .product-card__media {
-  aspect-ratio: 1;
-  padding: clamp(10px, 2vw, 22px);
+  --pad: clamp(18px, 3vw, 40px);
+  flex-shrink: 0;
+  height: 0;
+  padding-bottom: 75%;
+}
+.product-card__media img {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  width: calc(100% - 2 * var(--pad));
+  height: calc(100% - 2 * var(--pad));
 }
 
 .product-card__body {
@@ -543,10 +553,17 @@
   transform: translateY(-5px);
 }
 .mini-card__media {
-  aspect-ratio: 1;
-  padding: 10px;
+  --pad: 10px;
+  flex-shrink: 0;
+  height: 0;
+  padding-bottom: 100%;
 }
 .mini-card__media img {
+  position: absolute;
+  top: var(--pad);
+  left: var(--pad);
+  width: calc(100% - 2 * var(--pad));
+  height: calc(100% - 2 * var(--pad));
   pointer-events: none;
 }
 .mini-card .badge-off {

@@ -122,7 +122,7 @@
     a.innerHTML =
       '<div class="mini-card__media position-relative">' +
         '<span class="badge badge-off rounded-pill position-absolute fw-black">' + toFa(DISCOUNT_PERCENT) + '٪</span>' +
-        '<img class="w-100 h-100 object-fit-contain" src="assets/images/' + p.img + '.jpg" alt="' + p.name + '" width="200" height="200" loading="lazy" draggable="false">' +
+        '<img class="object-fit-contain" src="assets/images/' + p.img + '.jpg" alt="' + p.name + '" width="200" height="200" loading="lazy" draggable="false">' +
       '</div>' +
       '<div class="card-body mini-card__body d-flex flex-column align-items-center text-center">' +
         '<del class="price-old fw-medium">' + money(p.price) + '</del>' +
