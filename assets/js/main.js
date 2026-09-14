@@ -211,6 +211,10 @@
     var a = document.createElement("a");
     a.className = "card mini-card text-decoration-none";
     a.href = productUrl(p);
+    if (a.getAttribute("href") !== "#") {
+      a.target = "_blank";
+      a.rel = "noopener";
+    }
     a.draggable = false;
     a.innerHTML =
       '<div class="mini-card__media position-relative">' +
