@@ -1,0 +1,657 @@
+/* =========================================================
+   Mehr 1405 Campaign — Tamin Falat
+   Built on Bootstrap 5.3 — this file only holds what
+   Bootstrap utilities/components don't cover.
+   ========================================================= */
+
+/* ---------- Kalameh ---------- */
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Kalameh";
+  src: url("../fonts/Kalameh-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Brand tokens + Bootstrap overrides ---------- */
+:root {
+  --primary: #164194;
+  --primary-dark: #0b2660;
+  --accent: #f18815;
+  --neutral: #c6c6c6;
+
+  --band: #004377; /* dark strip at the bottom of the banner image */
+  --ink: #1b2437;
+  --muted: #8a92a1;
+  --bg: #f3f5f9;
+  --line: #e6e9f0;
+  --radius: 20px;
+
+  --bs-primary: #164194;
+  --bs-primary-rgb: 22, 65, 148;
+  --bs-body-font-family: "Kalameh", Tahoma, "Segoe UI", sans-serif;
+  --bs-body-line-height: 1.7;
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--bg);
+  --bs-link-color-rgb: 22, 65, 148;
+  --bs-link-hover-color-rgb: 11, 38, 96;
+}
+
+.fw-black {
+  font-weight: 900 !important;
+}
+
+/* 16px side gutters like before */
+.container-xxl {
+  --bs-gutter-x: 2rem;
+}
+
+/* ---------- Header ---------- */
+.site-header::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary),
+    var(--accent),
+    var(--primary)
+  );
+}
+.site-logo {
+  height: clamp(46px, 6vw, 68px);
+  width: auto;
+}
+
+/* ---------- Banner ---------- */
+.hero {
+  padding-block: clamp(14px, 2.5vw, 30px);
+}
+
+.banner {
+  container-type: inline-size;
+  border-radius: clamp(14px, 2vw, 26px);
+  background: var(--band);
+  box-shadow: 0 16px 36px -22px rgba(0, 0, 0, 0.25);
+}
+.banner__img {
+  aspect-ratio: 2880 / 800;
+}
+
+/* ---------- Countdown (mobile first: sits under the image) ---------- */
+.countdown {
+  gap: 12px;
+  padding: 6px 12px 18px;
+  background: var(--band);
+}
+
+.countdown__caption {
+  gap: 10px;
+}
+.countdown__eyebrow {
+  gap: 7px;
+  font-size: 13px;
+  color: var(--accent);
+}
+.countdown__title {
+  font-size: 16px;
+}
+
+.pulse-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  animation: pulse 1.6s ease-out infinite;
+}
+
+.countdown__units {
+  gap: 6px;
+}
+.cd-unit {
+  gap: 6px;
+}
+
+.cd-box {
+  place-items: center;
+  min-width: 62px;
+  height: 58px;
+  padding-inline: 6px;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 10px 20px -10px rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+/* glossy top half */
+.cd-box::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 50% 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
+  pointer-events: none;
+}
+/* flip-clock split line */
+.cd-box::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.22);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+.cd-num {
+  z-index: 1;
+  font-size: 28px;
+  text-shadow: 0 2px 14px rgba(255, 255, 255, 0.35);
+  font-variant-numeric: tabular-nums;
+}
+.cd-num.tick {
+  animation: tick 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.cd-label {
+  font-size: 12px;
+  color: #d5e2ff;
+}
+
+/* seconds — brand orange highlight */
+.cd-unit--sec .cd-box {
+  background: linear-gradient(180deg, #ffab45, var(--accent) 55%, #d96e00);
+  border-color: rgba(255, 214, 160, 0.75);
+}
+.cd-unit--sec .cd-num {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.cd-unit--sec .cd-label {
+  color: #ffc27a;
+}
+
+.cd-sep {
+  height: 58px;
+  line-height: 54px;
+  font-size: 26px;
+  color: var(--accent);
+  animation: blink 1s steps(1) infinite;
+}
+
+.countdown.is-ended .cd-sep,
+.countdown.is-ended .pulse-dot {
+  animation: none;
+}
+
+/* ---------- Countdown on desktop (lg): overlaid on the dark strip ---------- */
+@media (min-width: 992px) {
+  .countdown {
+    position: absolute;
+    top: 71.25%; /* where the dark strip starts in the artwork */
+    bottom: 0;
+    left: 44%; /* keep clear of the podium on the left */
+    right: 4%;
+    gap: 2.6cqw;
+    padding: 0;
+    background: none;
+  }
+  .countdown__caption {
+    gap: 0.1cqw;
+    line-height: 1.5;
+  }
+  .countdown__eyebrow {
+    font-size: max(11px, 1cqw);
+    gap: 0.5cqw;
+  }
+  .countdown__title {
+    font-size: 1.55cqw;
+  }
+  .pulse-dot {
+    width: 0.65cqw;
+    height: 0.65cqw;
+  }
+
+  .countdown__units {
+    gap: 0.7cqw;
+  }
+  .cd-unit {
+    gap: 0.3cqw;
+  }
+  .cd-box {
+    min-width: 5.4cqw;
+    height: 4.1cqw;
+    padding-inline: 0.45cqw;
+    border-radius: 0.9cqw;
+  }
+  .cd-num {
+    font-size: 2.5cqw;
+  }
+  .cd-label {
+    font-size: max(11px, 0.95cqw);
+  }
+  .cd-sep {
+    height: 4.1cqw;
+    line-height: 3.8cqw;
+    font-size: 2.2cqw;
+  }
+}
+
+/* ---------- Section head ---------- */
+.section-head {
+  margin-bottom: clamp(14px, 2vw, 22px);
+}
+.section-title {
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--primary);
+}
+.section-title::before {
+  content: "";
+  width: 6px;
+  height: 1.1em;
+  border-radius: 6px;
+  background: var(--accent);
+}
+.section-head::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to left, var(--neutral), transparent);
+}
+
+/* ---------- Featured cards ---------- */
+.offers {
+  padding-block: clamp(10px, 2vw, 20px);
+}
+
+@media (max-width: 575.98px) {
+  .offer-grid > .col-12 {
+    max-width: 420px;
+  }
+}
+
+.badge-off {
+  top: 14px;
+  right: 14px;
+  z-index: 1;
+  padding: 3px 11px;
+  background: var(--accent);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.price-old {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: line-through;
+  text-decoration-color: #e0463a;
+  text-decoration-thickness: 2px;
+}
+.price-new {
+  color: var(--primary);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.4;
+}
+.price-new small {
+  font-size: 0.62em;
+  font-weight: 500;
+}
+
+.product-card {
+  --bs-card-bg: #fff;
+  --bs-card-border-color: #edf0f5;
+  --bs-card-border-radius: var(--radius);
+  --bs-card-inner-border-radius: calc(var(--radius) - 1px);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px -22px rgba(0, 0, 0, 0.18);
+}
+.product-card__media {
+  aspect-ratio: 1;
+  padding: clamp(10px, 2vw, 22px);
+}
+
+.product-card__body {
+  padding: 14px 16px 20px;
+  border-top: 1px dashed var(--line);
+}
+.product-card__title {
+  margin-top: 6px;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.7;
+}
+
+/* ---------- Tamin Time collection ---------- */
+.hot {
+  padding-block: clamp(28px, 5vw, 56px);
+}
+
+.hot__box {
+  isolation: isolate;
+  padding: clamp(20px, 3.5vw, 44px) clamp(14px, 3vw, 40px);
+  border-radius: clamp(18px, 2.5vw, 32px);
+  background:
+    radial-gradient(
+      620px 320px at 88% -12%,
+      rgba(241, 136, 21, 0.5),
+      transparent 62%
+    ),
+    radial-gradient(
+      520px 300px at -4% 112%,
+      rgba(241, 136, 21, 0.28),
+      transparent 60%
+    ),
+    linear-gradient(
+      135deg,
+      #1f55b8 0%,
+      var(--primary) 45%,
+      var(--primary-dark) 100%
+    );
+  box-shadow: 0 24px 48px -30px rgba(0, 0, 0, 0.3);
+}
+/* dotted pattern */
+.hot__box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.14) 1.2px,
+    transparent 1.3px
+  );
+  background-size: 18px 18px;
+  -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%);
+  mask-image: linear-gradient(180deg, #000, transparent 85%);
+  pointer-events: none;
+}
+
+.hot__title {
+  font-size: clamp(24px, 3.4vw, 40px);
+  line-height: 1.3;
+}
+.hot__title em {
+  color: var(--accent);
+}
+.hot__subtitle {
+  margin-top: 2px;
+  font-size: clamp(12px, 1.3vw, 15px);
+  color: #cfdcff;
+}
+
+.flame {
+  width: 1.15em;
+  height: 1.15em;
+  transform-origin: 50% 90%;
+  animation: flicker 1.4s ease-in-out infinite;
+}
+
+.hot__btn {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgba(255, 255, 255, 0.1);
+  --bs-btn-border-color: rgba(255, 255, 255, 0.35);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent);
+  --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--accent);
+  --bs-btn-active-border-color: var(--accent);
+  --bs-btn-focus-box-shadow: none;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    transform 0.2s;
+}
+.hot__btn:active {
+  transform: scale(0.92);
+}
+.hot__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.hot-slider {
+  --per: 2;
+  --gap: 12px;
+  cursor: grab;
+  margin-top: clamp(16px, 2.5vw, 28px);
+  padding-block: 8px 12px;
+  touch-action: pan-y;
+  user-select: none;
+}
+.hot-slider.is-dragging {
+  cursor: grabbing;
+}
+.hot-slider.is-dragging .mini-card {
+  pointer-events: none;
+  transform: none;
+  transition: none;
+}
+.hot-slider__track {
+  gap: var(--gap);
+  will-change: transform;
+}
+.hot-slider__track > * {
+  flex: 0 0 calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));
+  min-width: 0;
+}
+/* cards per view on Bootstrap breakpoints */
+@media (min-width: 576px) {
+  .hot-slider {
+    --per: 3;
+  }
+}
+@media (min-width: 768px) {
+  .hot-slider {
+    --per: 4;
+    --gap: 16px;
+  }
+}
+@media (min-width: 992px) {
+  .hot-slider {
+    --per: 5;
+  }
+}
+@media (min-width: 1200px) {
+  .hot-slider {
+    --per: 6;
+  }
+}
+
+.mini-card {
+  --bs-card-bg: #fff;
+  --bs-card-border-width: 0;
+  --bs-card-border-radius: 16px;
+  color: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 12px 24px -14px rgba(0, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+  -webkit-user-drag: none;
+}
+.mini-card:hover {
+  transform: translateY(-5px);
+}
+.mini-card__media {
+  aspect-ratio: 1;
+  padding: 10px;
+}
+.mini-card__media img {
+  pointer-events: none;
+}
+.mini-card .badge-off {
+  top: 8px;
+  right: 8px;
+  padding: 1px 8px;
+  font-size: 11px;
+}
+.mini-card__body {
+  padding: 8px 10px 12px;
+  border-top: 1px dashed var(--line);
+}
+.mini-card .price-old {
+  font-size: 12px;
+}
+.mini-card .price-new {
+  font-size: clamp(14px, 1.4vw, 17px);
+}
+.mini-card__title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.2em;
+  margin: 4px 0 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+@media (max-width: 420px) {
+  .hot__btn {
+    width: 36px;
+    height: 36px;
+  }
+  .cd-box {
+    min-width: 56px;
+    height: 54px;
+  }
+  .cd-num {
+    font-size: 25px;
+  }
+  .cd-sep {
+    height: 54px;
+    line-height: 50px;
+    font-size: 22px;
+  }
+  .countdown__units {
+    gap: 4px;
+  }
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.6);
+    opacity: 0.45;
+  }
+}
+@keyframes tick {
+  0% {
+    transform: translateY(-55%);
+    opacity: 0;
+    filter: blur(2px);
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    filter: none;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
+  30% {
+    transform: scale(1.08, 0.96) rotate(2deg);
+  }
+  60% {
+    transform: scale(0.96, 1.06) rotate(-1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame,
+  .pulse-dot,
+  .cd-sep,
+  .cd-num.tick {
+    animation: none;
+  }
+  .product-card,
+  .mini-card {
+    transition: none;
+  }
+}
