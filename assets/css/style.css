@@ -62,14 +62,13 @@
   font-display: swap;
 }
 
-/* ---------- Brand tokens + Bootstrap overrides ---------- */
 :root {
   --primary: #164194;
   --primary-dark: #0b2660;
   --accent: #f18815;
   --neutral: #c6c6c6;
 
-  --band: #004377; /* dark strip at the bottom of the banner image */
+  --band: #004377;
   --ink: #1b2437;
   --muted: #8a92a1;
   --bg: #f3f5f9;
@@ -90,12 +89,10 @@
   font-weight: 900 !important;
 }
 
-/* 16px side gutters like before */
 .container-xxl {
   --bs-gutter-x: 2rem;
 }
 
-/* ---------- Header ---------- */
 .site-header::after {
   content: "";
   position: absolute;
@@ -114,7 +111,6 @@
   width: auto;
 }
 
-/* ---------- Banner ---------- */
 .hero {
   padding-block: clamp(14px, 2.5vw, 30px);
 }
@@ -129,7 +125,6 @@
   aspect-ratio: 2880 / 800;
 }
 
-/* ---------- Countdown (mobile first: sits under the image) ---------- */
 .countdown {
   gap: 12px;
   padding: 6px 12px 18px;
@@ -180,7 +175,6 @@
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
 }
-/* glossy top half */
 .cd-box::before {
   content: "";
   position: absolute;
@@ -188,7 +182,6 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent);
   pointer-events: none;
 }
-/* flip-clock split line */
 .cd-box::after {
   content: "";
   position: absolute;
@@ -215,7 +208,6 @@
   color: #d5e2ff;
 }
 
-/* seconds — brand orange highlight */
 .cd-unit--sec .cd-box {
   background: linear-gradient(180deg, #ffab45, var(--accent) 55%, #d96e00);
   border-color: rgba(255, 214, 160, 0.75);
@@ -239,14 +231,12 @@
 .countdown.is-ended .pulse-dot {
   animation: none;
 }
-
-/* ---------- Countdown on desktop (lg): overlaid on the dark strip ---------- */
 @media (min-width: 992px) {
   .countdown {
     position: absolute;
-    top: 71.25%; /* where the dark strip starts in the artwork */
+    top: 71.25%;
     bottom: 0;
-    left: 44%; /* keep clear of the podium on the left */
+    left: 44%;
     right: 4%;
     gap: 2.6cqw;
     padding: 0;
@@ -293,7 +283,6 @@
   }
 }
 
-/* ---------- Section head ---------- */
 .section-head {
   margin-bottom: clamp(14px, 2vw, 22px);
 }
@@ -316,7 +305,6 @@
   background: linear-gradient(to left, var(--neutral), transparent);
 }
 
-/* ---------- Featured cards ---------- */
 .offers {
   padding-block: clamp(10px, 2vw, 20px);
 }
@@ -368,7 +356,6 @@
   transform: translateY(-6px);
   box-shadow: 0 20px 36px -22px rgba(0, 0, 0, 0.18);
 }
-/* padding-bottom keeps the 4:3 box; the image is absolutely placed (safe on iOS Safari) */
 .product-card__media {
   --pad: clamp(18px, 3vw, 40px);
   flex-shrink: 0;
@@ -393,7 +380,6 @@
   line-height: 1.7;
 }
 
-/* ---------- Tamin Time collection ---------- */
 .hot {
   padding-block: clamp(28px, 5vw, 56px);
 }
@@ -421,7 +407,6 @@
     );
   box-shadow: 0 24px 48px -30px rgba(0, 0, 0, 0.3);
 }
-/* dotted pattern */
 .hot__box::before {
   content: "";
   position: absolute;
@@ -509,7 +494,6 @@
   flex: 0 0 calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));
   min-width: 0;
 }
-/* cards per view on Bootstrap breakpoints */
 @media (min-width: 576px) {
   .hot-slider {
     --per: 3;
@@ -608,7 +592,6 @@
   }
 }
 
-/* ---------- Keyframes ---------- */
 @keyframes pulse {
   0%,
   100% {
